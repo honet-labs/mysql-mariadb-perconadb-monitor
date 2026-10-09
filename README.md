@@ -194,6 +194,17 @@ zip -j pandorafms.mysql_monitor.disco discovery_definition.ini pandorafms_mysql.
 
 Do not zip a containing parent directory; the `discovery_definition.ini` file must be directly inside the archive. You can use 7-Zip with **ZIP** output and rename `.zip` to `.disco` as well.
 
+## Screenshots
+### Discovery
+<img width="1662" height="888" alt="image" src="https://github.com/user-attachments/assets/2fa09cc3-490b-409a-99de-6f793eb453f4" />
+<img width="1714" height="896" alt="image" src="https://github.com/user-attachments/assets/eb8a2712-20a6-42d3-8590-57610bc32487" />
+<img width="1713" height="901" alt="image" src="https://github.com/user-attachments/assets/02073f6f-d438-42f7-ae08-a8a8f3b1076f" />
+<img width="1715" height="905" alt="image" src="https://github.com/user-attachments/assets/2f891995-dd39-4462-a82d-5e620e160608" />
+<img width="1714" height="902" alt="image" src="https://github.com/user-attachments/assets/485214d0-8b69-4df4-801f-c93164f8b45e" />
+### Modules
+<img width="1635" height="772" alt="image" src="https://github.com/user-attachments/assets/ad8c98fc-a4fc-477d-85dd-014d930da011" />
+<img width="1661" height="767" alt="image" src="https://github.com/user-attachments/assets/f50bdfb0-553c-47bb-bea5-9ef1250ecc6f" />
+
 ## Compatibility and project status
 
 - **Plugin version:** `1.0.1`.
