@@ -1,6 +1,36 @@
 """MySQL / MariaDB / Percona Server via PyMySQL, one session per run."""
 import ssl
 OS_NAME='MySQL'
+VERSION_SQL='SELECT VERSION(), @@version_comment'
+
+def format_product_identity(product_version, version_comment):
+    """Use server-reported vendor/comment; do not manufacture enterprise editions."""
+    import re
+    number=str(product_version or '').strip()
+    comment=' '.join(str(version_comment or '').split())
+    both=(number+' '+comment).lower()
+    if 'mariadb' in both:
+        label='MariaDB Server'
+        # version() usually contains -MariaDB; it is part of the actual version.
+        detail=comment if comment and comment.lower() not in ('mariadb server','mariadb') and 'mariadb' not in comment.lower() else ''
+    elif 'percona' in both:
+        label='Percona Server'
+        detail='(GPL)' if '(GPL)' in comment.upper() else ''
+    else:
+        label='MySQL'
+        detail=comment
+        if detail.lower().startswith('mysql'):
+            detail=detail[5:].strip(' -')
+    result=f'{label} {number}'.strip()
+    if detail:
+        result+=(' '+detail if detail.startswith('(') else ' ('+detail+')')
+    return result[:128]
+
+def get_version_info(conn,cursor):
+    cursor.execute(VERSION_SQL)
+    row=cursor.fetchone()
+    return format_product_identity(row[0],row[1] if row and len(row)>1 else '') if row else ''
+
 
 def connect(cfg):
     try:import pymysql
