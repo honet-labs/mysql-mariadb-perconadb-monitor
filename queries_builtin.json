@@ -1,0 +1,212 @@
+[
+  {
+    "name": "Server:Version",
+    "sql": "SELECT VERSION()",
+    "datatype": "generic_data_string",
+    "group": "Basic Info",
+    "flag": "basic_info",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Server:Vendor",
+    "sql": "SELECT @@version_comment",
+    "datatype": "generic_data_string",
+    "group": "Basic Info",
+    "flag": "basic_info",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Server:Hostname",
+    "sql": "SELECT @@hostname",
+    "datatype": "generic_data_string",
+    "group": "Basic Info",
+    "flag": "basic_info",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Server:Port",
+    "sql": "SELECT @@port",
+    "datatype": "generic_data",
+    "group": "Basic Info",
+    "flag": "basic_info",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Server:ReadOnly",
+    "sql": "SELECT @@global.read_only",
+    "datatype": "generic_data",
+    "group": "Basic Info",
+    "flag": "basic_info",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Database:Current",
+    "sql": "SELECT DATABASE()",
+    "datatype": "generic_data_string",
+    "group": "Basic Info",
+    "flag": "basic_info",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Database:Count",
+    "sql": "SELECT COUNT(*) FROM information_schema.schemata",
+    "datatype": "generic_data",
+    "group": "Databases",
+    "flag": "databases",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Database:List",
+    "sql": "SELECT schema_name FROM information_schema.schemata ORDER BY schema_name",
+    "datatype": "generic_data_string",
+    "group": "Databases",
+    "flag": "databases",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Database:Tables",
+    "sql": "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE()",
+    "datatype": "generic_data",
+    "group": "Databases",
+    "flag": "databases",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Database:SizeMB",
+    "sql": "SELECT ROUND(COALESCE(SUM(data_length+index_length),0)/1024/1024,2) FROM information_schema.tables WHERE table_schema=DATABASE()",
+    "datatype": "generic_data",
+    "group": "Databases",
+    "flag": "databases",
+    "builtin": true,
+    "unit": "MB",
+    "result": "auto"
+  },
+  {
+    "name": "Connections:MaxAllowed",
+    "sql": "SELECT @@max_connections",
+    "datatype": "generic_data",
+    "group": "Connections",
+    "flag": "connections",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Connections:ThreadsConnected",
+    "sql": "SHOW GLOBAL STATUS LIKE 'Threads_connected'",
+    "datatype": "generic_data",
+    "group": "Connections",
+    "flag": "connections",
+    "builtin": true,
+    "unit": "",
+    "result": "status_value"
+  },
+  {
+    "name": "Connections:ThreadsRunning",
+    "sql": "SHOW GLOBAL STATUS LIKE 'Threads_running'",
+    "datatype": "generic_data",
+    "group": "Connections",
+    "flag": "connections",
+    "builtin": true,
+    "unit": "",
+    "result": "status_value"
+  },
+  {
+    "name": "Connections:AbortedConnects",
+    "sql": "SHOW GLOBAL STATUS LIKE 'Aborted_connects'",
+    "datatype": "generic_data",
+    "group": "Connections",
+    "flag": "connections",
+    "builtin": true,
+    "unit": "",
+    "result": "status_value"
+  },
+  {
+    "name": "Performance:Uptime",
+    "sql": "SHOW GLOBAL STATUS LIKE 'Uptime'",
+    "datatype": "generic_data",
+    "group": "Performance",
+    "flag": "performance",
+    "builtin": true,
+    "unit": "seconds",
+    "result": "status_value"
+  },
+  {
+    "name": "Performance:Questions",
+    "sql": "SHOW GLOBAL STATUS LIKE 'Questions'",
+    "datatype": "generic_data",
+    "group": "Performance",
+    "flag": "performance",
+    "builtin": true,
+    "unit": "queries",
+    "result": "status_value"
+  },
+  {
+    "name": "Performance:SlowQueries",
+    "sql": "SHOW GLOBAL STATUS LIKE 'Slow_queries'",
+    "datatype": "generic_data",
+    "group": "Performance",
+    "flag": "performance",
+    "builtin": true,
+    "unit": "queries",
+    "result": "status_value"
+  },
+  {
+    "name": "Performance:InnodbBPReads",
+    "sql": "SHOW GLOBAL STATUS LIKE 'Innodb_buffer_pool_reads'",
+    "datatype": "generic_data",
+    "group": "Performance",
+    "flag": "performance",
+    "builtin": true,
+    "unit": "reads",
+    "result": "status_value"
+  },
+  {
+    "name": "Performance:InnodbBPReadRequests",
+    "sql": "SHOW GLOBAL STATUS LIKE 'Innodb_buffer_pool_read_requests'",
+    "datatype": "generic_data",
+    "group": "Performance",
+    "flag": "performance",
+    "builtin": true,
+    "unit": "requests",
+    "result": "status_value"
+  },
+  {
+    "name": "Security:CurrentUser",
+    "sql": "SELECT CURRENT_USER()",
+    "datatype": "generic_data_string",
+    "group": "Security",
+    "flag": "security",
+    "builtin": true,
+    "unit": "",
+    "result": "auto"
+  },
+  {
+    "name": "Security:SSLCipher",
+    "sql": "SHOW GLOBAL STATUS LIKE 'Ssl_cipher'",
+    "datatype": "generic_data_string",
+    "group": "Security",
+    "flag": "security",
+    "builtin": true,
+    "unit": "",
+    "result": "status_value"
+  }
+]
