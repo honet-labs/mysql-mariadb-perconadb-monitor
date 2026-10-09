@@ -201,6 +201,7 @@ Do not zip a containing parent directory; the `discovery_definition.ini` file mu
 <img width="1713" height="901" alt="image" src="https://github.com/user-attachments/assets/02073f6f-d438-42f7-ae08-a8a8f3b1076f" />
 <img width="1715" height="905" alt="image" src="https://github.com/user-attachments/assets/2f891995-dd39-4462-a82d-5e620e160608" />
 <img width="1714" height="902" alt="image" src="https://github.com/user-attachments/assets/485214d0-8b69-4df4-801f-c93164f8b45e" />
+
 ### Modules
 <img width="1635" height="772" alt="image" src="https://github.com/user-attachments/assets/ad8c98fc-a4fc-477d-85dd-014d930da011" />
 <img width="1661" height="767" alt="image" src="https://github.com/user-attachments/assets/f50bdfb0-553c-47bb-bea5-9ef1250ecc6f" />
